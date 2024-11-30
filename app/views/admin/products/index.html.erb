@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2><%= t "admin.crud.product.title" %></h2>
+    <div class="d-flex align-items-center">
+      <%= form_with url: admin_products_path, method: :get do |form| %>
+        <%= form.select :category_id, options_for_select(category_selection, params[:category_id]), 
+                          { include_blank: "Select a Category" }, class: "form-select", onchange: "this.form.submit();" %>
+      <% end %>
+      <%= link_to "Create", new_admin_product_path, class: "btn btn-primary ms-2" %>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Thumbnail</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th class="text-end">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product.name %></td>
+          <td>
+            <%= render "shared/small_image_display", product: product %>
+          </td>
+          <td><%= number_to_currency(product.price) %></td>
+          <td><%= product.category.name %></td>
+          <td class="text-end">
+            <%= link_to "Edit", edit_admin_product_path(product), class:"mt-1 mb-1 btn btn-primary" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>

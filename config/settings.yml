@@ -1,0 +1,37 @@
+regex:
+  email: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i'
+user:
+  validates:
+    password:
+      min: 6
+    name:
+      max: 50
+product:
+  validates:
+    name:
+      max: 100
+    price:
+      max: 100000000
+      min: 0
+  paginates: 12
+blob:
+  size:
+    small: [800, 600]
+    large: [1024, 768]
+display:
+  product_name: 40
+  slides:
+    product_items: 15
+cart:
+  default_value: 1
+order:
+  paginates: 5
+  admin:
+    paginates: 5
+date_format: "%B %d, %Y %I:%M %p"
+mailer:
+  from: tran.trung.thanh@sun-asterisk.com
+devise:
+  email: !ruby/regexp '/\A[^@\s]+@[^@\s]+\z/'
+  cost: 12
+  maximum_attempts: 3

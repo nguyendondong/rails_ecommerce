@@ -1,0 +1,64 @@
+en:
+  number:
+    currency:
+      format:
+        separator: ","
+        precision: 0
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "VNĐ"
+        format: "%n %u"
+  title: 
+    admin: "Admin Dashboard"
+    user: "Pet Store"
+  sign_up:
+    title: "Sign Up"
+    sign_in_now: "Sign in now!"
+    create_success: "Signed up successfully!"
+  sign_in:
+    title: "Sign In"
+    sign_up_now: "Sign up now!"
+    success_message: "Signed in successfully!"
+    error_message: "Email or password is invalid Or Your account no longer has access to these!"
+  sign_out:
+    title: "Sign Out"
+    success_message: "Logged out!"
+  count_errors: "The form contains %{errors}"
+  header:
+    profile: "Profile"
+    order_history: "Order History"
+  navbar:
+    admin:
+      product: "Product"
+      order: "Order"
+      user: "User"
+    user:
+      cart: "Cart"
+      options: "Options"
+      order_history: "Order History"
+  admin:
+    crud:
+      product:
+        description_length: 150
+        title: "List of Products"
+        success_message: "Save successfully!"
+        create:
+          title: "Create New Product"
+        update:
+          title: "Update Product"
+          status:
+            success_message: "Successfully Updated!"
+  display:
+    order_status:
+      wait_confirm: "Waiting for Confirmation"
+      delivering: "Being Delivered"
+      completed: "Completed"
+      canceled: "Canceled"
+  mailer:
+    subject:
+      confirm_order: "Order Confirmation From Pet Store"
+      place_order: "Order successfully placed"
+      reject_order: "Order Rejected"
+  links:
+    forgot_password: "Forgot your password?"
+    confirmation: "Didn't receive confirmation instructions?"

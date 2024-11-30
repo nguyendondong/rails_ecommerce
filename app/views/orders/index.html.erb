@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-3">
+    <h4>Order status</h4>
+    <ul class="list-group">
+      <% Order.statuses.keys.each do | status | %>
+        <li class="list-group-item"><%= link_to t("display.order_status.#{status}"), orders_path(status: status), class: "text-decoration-none text-black" %></li>
+      <% end %>
+      <li class="list-group-item"><%= link_to "All", orders_path, class: "text-decoration-none text-black" %></li>
+    </ul>
+  </div>
+
+  <div class="col-md-9">
+    <div class="row">
+      <% if @orders.empty? %>
+        <div class="col-lg-12 text-center">
+          <%= image_tag "empty-orders.png", class: "d-block mx-auto" %>
+          <%= link_to "Continue Shopping", root_path, class: "btn btn-primary mt-3" %>
+        </div>
+      <% else %>
+        <h2><%= "Order History" %></h2>
+        <div class="col">
+          <%= render partial: "order", collection: @orders %>
+        </div>
+        <%== pagy_bootstrap_nav(@pagy) %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<%= form_for [:admin, @product] do |form| %>
+  <%= render "shared/error_messages", object: form.object %>
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :body, class: "form-label" %>
+    <%= form.rich_text_area :body, class: "form-control ckeditor", rows: 5 %>
+  </div>
+  
+  <div class="mb-3">
+    <%= form.label :price, class: "form-label" %>
+    <%= form.number_field :price, class: "form-control" %>
+  </div>
+  
+  <div class="mb-3">
+    <%= form.label :status, class: "form-label" %>
+    <%= form.select :status, Product.statuses.keys, { prompt: "Select status" }, class: "form-select" %>
+  </div>
+  
+  <div class="mb-3">
+    <%= form.label :category_id, class: "form-label" %>
+    <%= form.collection_select :category_id, load_categories, :id, :name, { prompt: "Select a category" }, class: "form-select" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :image, class: "form-label" %>
+     <%= image_tag @product.image, class: "image-admin" if @product.image.attached? %>
+    <%= form.file_field :image, class: "form-control form-control-sm" %>
+  </div>
+  
+  <div class="mb-3">
+    <%= form.submit "Save Product", class: "btn btn-primary" %>
+    <%= link_to "Cancel", admin_products_path, class: "btn btn-secondary" %>
+  </div>
+<% end %>

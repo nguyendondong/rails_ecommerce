@@ -1,0 +1,5 @@
+<h3><%= order_item.product.name %></h3>
+<p>Price: <%= number_to_currency(order_item.price) %></p>
+<p>Quantity: <%= order_item.quantity %></p>
+<p>Total: <%= number_to_currency(order_item.quantity * order_item.price) %></p>
+<hr>

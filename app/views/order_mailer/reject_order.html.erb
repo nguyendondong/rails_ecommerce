@@ -1,0 +1,5 @@
+<h1>Order Rejected</h1>
+<p>Dear <%= @order.user.name %>,</p>
+<p>Unfortunately, your order ("Order ID: <%= @order.id %>") has been rejected due to the following reason:</p>
+<p style="color: red;"><%= @order.reason_description %></p>
+<%= render "detail_order" %>

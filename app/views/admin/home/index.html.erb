@@ -1,0 +1,76 @@
+<div class="container mt-5 mb-3">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card p-3 mb-2 h-card h-100 custom-shadow">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-row align-items-center">
+            <div class="ms-2 c-details">
+              <h6 class="mb-0">Users</h6>
+              <span>Registered Users</span>
+            </div>
+          </div>
+          <div class="badge">
+            <span>Users</span>
+          </div>
+        </div>
+        <hr>
+        <div class="mt-3 card-content">
+          <h3 class="heading">Number of Users</h3>
+          <div class="mt-3">
+            <div class="mt-3 text-center">
+              <span class="text1"><%= @user_count %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 mb-2 h-card h-100 custom-shadow">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-row align-items-center">
+            <div class="ms-2 c-details">
+              <h6 class="mb-0">Orders</h6>
+              <span>This month</span>
+            </div>
+          </div>
+          <div class="badge">
+            <span>Orders</span>
+          </div>
+        </div>
+        <hr>
+        <div class="mt-3 card-content">
+          <h3 class="heading">Number of Orders for this month: <span class="text-green"><%= Date.today.strftime("%B") %></span></h3>
+          <div class="mt-3">
+            <div class="mt-3 text-center">
+              <span class="text1"><%= @orders_this_month %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 mb-2 h-card h-100 custom-shadow">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-row align-items-center">
+            <div class="ms-2 c-details">
+              <h6 class="mb-0">Products</h6>
+              <span>Total Products</span>
+            </div>
+          </div>
+          <div class="badge">
+            <span>Products</span>
+          </div>
+        </div>
+        <hr>
+        <div class="mt-3 card-content">
+          <h3 class="heading">Number of Products</h3>
+          <div class="mt-3">
+            <div class="mt-3 text-center">
+              <span class="text1"><%= @product_count %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

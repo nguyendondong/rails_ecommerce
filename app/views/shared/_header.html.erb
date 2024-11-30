@@ -1,0 +1,5 @@
+<% if current_user&.admin? %>
+  <%= render "/shared/admin_navbar" %>
+<% else %>
+  <%= render "shared/user_navbar" %>
+<% end %>

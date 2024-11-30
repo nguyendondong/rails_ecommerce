@@ -1,0 +1,5 @@
+<% if has_image product %>
+  <%= image_tag product&.image, class: "image-admin" %>
+<% else %>
+  <%= image_tag "No_Image_Available.jpg", class: "image-admin" %>              
+<% end %>

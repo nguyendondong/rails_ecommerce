@@ -1,0 +1,7 @@
+<tr>
+  <td><%= link_to order_item.product.name, product_path(order_item.product), class: "text-decoration-none text-black" %></td>
+  <td class="text-center"><%= render "shared/small_image_display", product: order_item.product %></td>
+  <td><%= number_to_currency(order_item.price) %></td>
+  <td><%= order_item.quantity %></td>
+  <td><%= number_to_currency(order_item.quantity * order_item.price) %></td>
+</tr>

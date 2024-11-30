@@ -1,0 +1,4 @@
+<h1>Welcome to Pet Store, Your Order Has Been Confirmed</h1>
+<p>Dear <%= @order.user.name %>,</p>
+<p>Your order #<%= @order.id %> has been successfully confirmed!</p>
+<%= render "detail_order" %>

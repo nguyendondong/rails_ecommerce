@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-2">
+    <ul class="list-group">
+      <%= search_form_for @q, class: "form_sort_product" do |f| %>
+        <%= f.search_field  :name_or_action_text_rich_text_body_cont, placeholder: "Search products...", class: "form-control me-2" %>
+        <%= f.label :category_id_eq, "Category", class: "form-label mt-3" %>
+        <%= f.select :category_id_eq, options_for_select(category_selection, params.dig(:q, :category_id_eq)),
+                                              { include_blank: "Select a Category" }, class: "form-control me-2" %>
+        <%= f.label :price_gteq, "Min Price", class: "form-label mt-3" %>
+        <%= f.number_field :price_gteq, placeholder: "Min Price", class: "form-control me-2" %>
+        <%= f.label :price_lteq, "Max Price", class: "form-label mt-3" %>
+        <%= f.number_field :price_lteq, placeholder: "Max Price", class: "form-control me-2 mb-3" %>
+        <div id="priceSort" class="d-none mt-2 btn btn-light">
+          <%= f.check_box :s, { multiple: true, checked: params.dig(:q, :s)&.include?("price desc") }, "price desc" %>
+          <%= f.check_box :s, { multiple: true, checked: params.dig(:q, :s)&.include?("price asc") }, "price asc" %>
+        </div>
+        <div id="nameSort" class="d-none mt-2 btn btn-light mt-2">
+          <%= f.check_box :s, { multiple: true, checked: params.dig(:q, :s)&.include?("name desc") }, "name desc" %>
+          <%= f.check_box :s, { multiple: true, checked: params.dig(:q, :s)&.include?("name asc") }, "name asc" %>
+        </div>
+        <%= f.submit "Search", class: "w-100 mt-2 btn btn-success mt-2" %>
+      <% end %>
+  </div>
+  <div class="col-md-10">
+    <div class="row mb-2 border rounded">
+      <div class="col-md-2 center">
+        Order By:
+      </div>
+      <div class="col-md-2">
+        <span><%= sort_link(@q, :price, "Price", default_order: :asc, class: "btn btn-link text-decoration-none js-priceSort", remote: true) %></span>
+      </div>
+      <div class="col-md-2">
+        <span><%= sort_link(@q, :name, "Name", default_order: :desc, class: "btn btn-link text-decoration-none js-nameSort", remote: true) %></span>
+      </div>
+    </div>
+    <% if @products.empty?  %>
+      <div class="text-center">
+        <%= image_tag "empty_items.png", class: "d-block mx-auto mb-4 empty-items-img" %>
+      </div>
+    <% else %>
+      <div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
+        <% @products.each do |product| %>
+          <%= link_to product_path(product), class: "text-decoration-none" do %>
+            <div class="col">
+              <div class="card h-100">
+                <%= render "shared/image_display", product: product %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= truncate(product.name, length: Settings.display.product_name, omission: "...") %></h5>
+                  <p class="card-text"><%= number_to_currency(product.price) %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <%== pagy_bootstrap_nav(@pagy) %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<% if has_image product %>
+  <%= image_tag product&.image, class: "d-block w-100" %>
+<% else %>
+  <%= image_tag "No_Image_Available.jpg", class: "d-block w-100" %>              
+<% end %>

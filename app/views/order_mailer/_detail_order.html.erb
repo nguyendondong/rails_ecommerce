@@ -1,0 +1,11 @@
+<p>Thank you for placing an order with Pet Store. Here are the details of your order:</p>
+<hr>
+<%= render partial: "order_item", collection: @order.order_items %>
+<p><strong>Address:</strong> <%= @order.address %></p>
+<p><strong>Time:</strong> <%= @order.created_at.strftime(Settings.date_format) %></p>
+<p><strong>Phone:</strong> <%= @order.phone %></p>
+<p><strong>Total Order Price: <%= number_to_currency(@order.total_price) %></strong></p>
+<p>Thank you for shopping with us!</p>
+<p>You can view your order history <%= link_to "Here", orders_url %>.</p>
+<p>Sincerely,<br>
+The Pet Store Team</p>

@@ -1,0 +1,25 @@
+<tr>
+  <td>
+    <%= link_to product_path(product), class: "text-decoration-none text-black" do %>
+      <div>
+        <%= product.name %>
+      </div>
+      <div class="image-admin">
+        <%= render "shared/image_display", product: product %>
+      </div>
+    <% end %>
+  </td>
+  <td class="text-center">
+    <%= form_with url: cart_path(product_id: product.id), method: :put, remote: true do |form| %>
+    <div class="qty quantity-scope">
+      <span class="js-minus minus bg-dark">-</span>
+      <%= form.number_field :quantity, class: "count count-update", value: @cart_items[product.id.to_s], readonly: true %>
+      <span class="js-plus plus bg-dark">+</span>
+    </div>
+    <% end %>
+  <td><%= number_to_currency(product.price) %></td>
+  <td><%= number_to_currency(product.price * @cart_items[product.id.to_s]) %></td>
+  <td>
+    <%= button_to "Remove", cart_path(product_id: product.id), method: :delete, class: "btn btn-danger btn-sm" %>
+  </td>
+</tr>

@@ -1,0 +1,157 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.wrapper {
+  margin-bottom: 200px;
+}
+
+footer {
+  margin-top: auto;
+  background-color: #F6F6F6;
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.navbar-brand-text {
+  font-size: 2rem !important;
+  font-weight: bold;
+}
+
+.custom-btn-primary {
+  background-color: #FF2200 !important;
+  border-color: #FF2200 !important;
+}
+
+.image-admin {
+  width: 100px; 
+  display: block
+}
+
+.empty-items-img {
+  width: 400px;
+}
+
+.mlr-50 {
+  padding: 0 50px 0 50px;
+}
+
+.custom-shadow{
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-item .card {
+  width: 280px;
+  height: 400px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #007bff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-control-prev-icon::before,
+.carousel-control-next-icon::before {
+  content: '';
+  font-family: 'Glyphicons Halflings';
+  font-size: 24px;
+  color: #fff;
+}
+
+.carousel-caption {
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+}
+
+.carousel-caption h5,
+.carousel-caption p {
+  color: #fff;
+}
+
+.carousel-caption a.btn {
+  margin-top: 10px;
+}
+
+.text-green {
+  color: green;
+}
+
+.cancel-reason {
+  display: none;
+}
+
+.cancellation-reason {
+  border: 1px solid #e74c3c;
+  padding: 10px;
+  background-color: #ffdfe4;
+  color: #e74c3c;
+  border-radius: 5px;
+}
+
+.footer {
+  background-color: #f2f2f2;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+
+.card {
+  border: none;
+  border-radius: 10px
+}
+
+.c-details span {
+  font-weight: 300;
+  font-size: 13px
+}
+
+.badge span {
+  background-color: #fffbec;
+  width: 60px;
+  height: 25px;
+  padding-bottom: 3px;
+  border-radius: 5px;
+  display: flex;
+  color: #dfb737;
+  justify-content: center;
+  align-items: center
+}
+
+.text1 {
+  font-size: 45px;
+  font-weight: 600
+}
+
+.h-card {
+  min-height: 300px;
+}
+
+.card-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-hr {
+  width: 60px;
+  background-color: #7c4dff;
+  height: 2px
+}
+
+.center {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}

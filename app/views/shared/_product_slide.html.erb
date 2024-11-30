@@ -1,0 +1,31 @@
+<div id="<%= id_slide %>" class="carousel slide mt-2 mb-5" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <% products.each_slice(4).with_index do |products_slice, index| %>
+      <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
+        <div class="row">
+          <% products_slice.each do |product| %>
+            <div class="col-md-3">
+              <%= link_to product_path(product), class: "text-decoration-none" do %>
+                <div class="card mx-3">
+                  <%= render "shared/image_display", product: product %>
+                  <div class="card-body">
+                    <h5 class="card-title"><%= truncate(product.name, length: Settings.display.product_name, omission: "...") %></h5>
+                    <p class="card-text"><%= number_to_currency(product.price) %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="<%= "##{id_slide}" %>" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="<%= "##{id_slide}" %>" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

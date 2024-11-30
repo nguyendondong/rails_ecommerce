@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+  <div class="container">
+    <%= link_to t("title.admin"), admin_home_path, class:"navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle sidebar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="sidebar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to t("navbar.admin.product"), admin_products_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t("navbar.admin.order"), admin_orders_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t("navbar.admin.user"), admin_users_path, class:"nav-link" %>
+        </li>
+      </ul>
+      <div class="navbar-collapse justify-content-end">
+        <div class="btn-group">
+          <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= current_user.name %>
+          </button>
+          <ul class="dropdown-menu">
+            <li><%= button_to t("sign_out.title"), destroy_user_session_path, method: "delete", class: "dropdown-item" %></li>
+          </ul>
+        </div>
+    </div>
+    </div>
+  </div>
+</nav>

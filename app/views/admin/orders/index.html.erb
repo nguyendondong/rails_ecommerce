@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>List of Orders</h2>
+    <%= form_with url: admin_orders_path, method: :get do |form| %>
+      <%= form.select :status, options_for_select(status_order_selection, params[:status]), { include_blank: "Select Status" }, class: "form-select", onchange: "this.form.submit();" %>
+    <% end %>
+  </div>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Customer</th>
+      <th>Order Date</th>
+      <th>Total</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "order", collection: @orders %>
+  </tbody>
+</table>
+<%== pagy_bootstrap_nav(@pagy) %>

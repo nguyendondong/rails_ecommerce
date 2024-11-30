@@ -1,0 +1,50 @@
+<section class="product-details spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6">
+        <div class="mlr-50">
+          <div class="product__details__pic custom-shadow">
+            <div class="product__details__pic__slider owl-carousel">
+              <%= render "shared/image_display", product: @product %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <div class="product__details__text">
+          <h3><%= @product.name %></h3>
+          <div class="product__details__price"><%= number_to_currency(@product.price) %></div>
+          <%= form_with url: cart_path(product_id: @product.id) do |form| %>
+            <div class="qty quantity-scope mt-5">
+              <span class="js-minus minus bg-dark">-</span>
+              <%= form.number_field :quantity, class: "form-control count", value: Settings.cart.default_value, readonly: true %>
+              <span class="js-plus plus bg-dark">+</span>
+            </div>
+            <%= form.submit "ADD TO CART", class: "btn btn-primary add-to-cart-button custom-btn-primary mt-3" %>
+          <% end %>
+          <ul>
+            <li><b>Sold: </b> <span><%= number_with_delimiter(@product.sold, delimiter: ",") %></span></li>
+            <li><b>Availability</b> <span>In Stock</span></li>
+            <li><b>Shipping</b> <span>Yes</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="product__details__tab mt-5">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <p>Description</p>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+              <div class="product__details__tab__desc text-center">
+                <%= @product.body %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

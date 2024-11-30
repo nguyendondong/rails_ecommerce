@@ -1,0 +1,12 @@
+<tr>
+  <td><%= order.id %></td>
+  <td><%= order.user.name %></td>
+  <td><%= order.created_at.strftime(Settings.date_format) %></td>
+  <td><%= number_to_currency(order.total_price) %></td>
+  <td>
+    <span class="badge text-bg-<%= status_badge order.status %> mb-3"><%= t("display.order_status.#{order.status}") %></span>
+  </td>
+  <td>
+    <%= link_to "Details", edit_admin_order_path(order), class: "btn btn-primary btn-sm" %>
+  </td>
+</tr>
